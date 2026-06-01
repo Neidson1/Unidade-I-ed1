@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    float coordenada_x;
+    float *ponteiro_x;
+
+    // Faz o ponteiro apontar para a variável coordenada_x
+    ponteiro_x = &coordenada_x;
+
+    // Leitura da coordenada
+    scanf("%f", &coordenada_x);
+
+    // Impressão da coordenada
+    printf("Posicao do portal no eixo X: %f\n", coordenada_x);
+
+    // Impressão do endereço de memória
+    printf("Endereco do portal para teletransporte: %p\n", (void *)ponteiro_x);
+
+    return 0;
+}

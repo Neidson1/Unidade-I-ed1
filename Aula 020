@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    void *ponteiro_duracao;
+
+    // Alocação de memória para um inteiro
+    ponteiro_duracao = malloc(sizeof(int));
+
+    if (ponteiro_duracao == NULL) {
+        printf("Erro: falha na alocacao de memoria!\n");
+        return 1;
+    }
+
+    // Ativação do power-up (cast para int*)
+    *((int *)ponteiro_duracao) = 10;
+
+    // Duração inicial
+    printf("Power-up 'Super Salto' ativado! Duracao: %d segundos.\n",
+           *((int *)ponteiro_duracao));
+
+    // Simula passagem do tempo (-3 segundos)
+    *((int *)ponteiro_duracao) -= 3;
+
+    // Duração atualizada
+    printf("3 segundos se passaram... Duracao restante: %d segundos.\n",
+           *((int *)ponteiro_duracao));
+
+    // Liberação de memória
+    free(ponteiro_duracao);
+
+    return 0;
+}

@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    // Vetores de munição: [quantidade atual, capacidade máxima]
+    int balas[2] = {30, 100};
+    int granadas[2] = {5, 10};
+    int foguetes[2] = {2, 5};
+
+    // Inventário (vetor de ponteiros)
+    int *inventario[3];
+
+    // Conectando o inventário às munições
+    inventario[0] = balas;
+    inventario[1] = granadas;
+    inventario[2] = foguetes;
+
+    // Estado inicial
+    printf("Inventario Inicial:\n");
+    printf("Balas: %d\n", *(inventario[0] + 0));
+    printf("Granadas: %d\n", *(inventario[1] + 0));
+    printf("Foguetes: %d\n", *(inventario[2] + 0));
+
+    // Simulação de uso (decrementa 1 de cada munição)
+    for (int i = 0; i < 3; i++) {
+        (*(inventario[i] + 0))--;
+    }
+
+    // Estado final
+    printf("Inventario Apos o Uso:\n");
+    printf("Balas: %d\n", *(inventario[0] + 0));
+    printf("Granadas: %d\n", *(inventario[1] + 0));
+    printf("Foguetes: %d\n", *(inventario[2] + 0));
+
+    return 0;
+}

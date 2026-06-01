@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int pontuacao = 0;
+    int *ponteiro_pontuacao;
+
+    // Conecta o ponteiro à variável pontuacao
+    ponteiro_pontuacao = &pontuacao;
+
+    // Exibe a pontuação inicial
+    printf("Pontuacao inicial: %d\n", pontuacao);
+
+    // Simula a coleta de 3 moedas (+10 pontos cada)
+    *ponteiro_pontuacao += 10;
+    *ponteiro_pontuacao += 10;
+    *ponteiro_pontuacao += 10;
+
+    // Exibe a pontuação final
+    printf("Pontuacao final apos coletar 3 moedas: %d\n", pontuacao);
+
+    return 0;
+}

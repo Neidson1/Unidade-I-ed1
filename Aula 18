@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *vida_inimigo;
+
+    // Alocação dinâmica de memória
+    vida_inimigo = (int *) malloc(sizeof(int));
+
+    // Verificação de falha na alocação
+    if (vida_inimigo == NULL) {
+        printf("Erro: falha na alocacao de memoria!\n");
+        return 1;
+    }
+
+    // Definindo vida inicial
+    *vida_inimigo = 80;
+
+    // Exibindo invocação do inimigo
+    printf("Um novo inimigo apareceu com %d de vida!\n", *vida_inimigo);
+
+    // Simulando ataque do jogador
+    *vida_inimigo -= 35;
+
+    // Exibindo vida restante
+    printf("O jogador atacou! Vida restante do inimigo: %d\n", *vida_inimigo);
+
+    // Liberando memória alocada
+    free(vida_inimigo);
+
+    return 0;
+}

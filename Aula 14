@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char frase_inicio_luta[] = "Voce nunca saira daqui com vida!";
+    char caixa_dialogo[100] = "(Silencio)";
+
+    // Estado inicial
+    printf("Chefe antes da luta: %s\n", caixa_dialogo);
+
+    // Ativando diálogo do chefe
+    strcpy(caixa_dialogo, frase_inicio_luta);
+
+    // Estado após ativação
+    printf("Chefe diz: %s\n", caixa_dialogo);
+
+    return 0;
+}

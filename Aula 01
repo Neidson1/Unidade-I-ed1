@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    // Variável de vida
+    int vida_jogador = 100;
+
+    // Ponteiro para inteiro
+    int *ponteiro_vida;
+
+    // Simulando dano
+    vida_jogador = 50;
+
+    // Imprime a vida após o dano
+    printf("O jogador sofreu dano! Vida atual: %d\n", vida_jogador);
+
+    // Conecta o ponteiro ao endereço da variável
+    ponteiro_vida = &vida_jogador;
+
+    // Usa o power-up para restaurar a vida
+    *ponteiro_vida = 100;
+
+    // Imprime a vida após a restauração
+    printf("Power-up coletado! Vida restaurada: %d\n", vida_jogador);
+
+    return 0;
+}

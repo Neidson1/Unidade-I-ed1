@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char nome_jogador[50];
+    char titulo_conquistado[50];
+
+    // Entrada do nome
+    printf("Digite o nome do heroi: ");
+    scanf(" %[^\n]", nome_jogador);
+
+    // Entrada do título
+    printf("Digite o titulo conquistado: ");
+    scanf(" %[^\n]", titulo_conquistado);
+
+    // Adiciona espaço ao nome
+    strcat(nome_jogador, " ");
+
+    // Concatena o título ao nome
+    strcat(nome_jogador, titulo_conquistado);
+
+    // Exibe resultado final
+    printf("O heroi agora e conhecido como: %s\n", nome_jogador);
+
+    return 0;
+}

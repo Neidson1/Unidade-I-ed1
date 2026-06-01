@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    // Variável do tesouro
+    int tesouro_local = 0;
+
+    // Ponteiro da plataforma secreta
+    int *plataforma_secreta;
+
+    // Conectando a plataforma ao local do tesouro
+    plataforma_secreta = &tesouro_local;
+
+    // Verificação inicial
+    printf("O tesouro ainda nao apareceu. Valor: %d\n", tesouro_local);
+
+    // Ativando o tesouro usando apenas o ponteiro
+    *plataforma_secreta = 1;
+
+    // Verificação final
+    printf("O personagem pisou na plataforma secreta! O tesouro apareceu! Valor: %d\n", tesouro_local);
+
+    return 0;
+}

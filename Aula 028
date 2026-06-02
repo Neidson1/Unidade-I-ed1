@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+// Definição da struct Jogador
+struct Jogador {
+    float pos_x;
+    int pontuacao;
+    int tem_pulo_duplo;
+};
+
+int main() {
+    // Criação do personagem
+    struct Jogador heroi;
+
+    // Estado inicial
+    heroi.pos_x = 50.0;
+    heroi.pontuacao = 0;
+    heroi.tem_pulo_duplo = 0;
+
+    // Impressão do estado inicial
+    printf("Inicio da fase! Posicao X: %.1f, Pontos: %d, Pulo Duplo: Nao\n",
+           heroi.pos_x, heroi.pontuacao);
+
+    // Simulação de ações
+    heroi.pontuacao += 10;       // coletou moeda
+    heroi.tem_pulo_duplo = 1;    // pegou power-up
+
+    // Impressão do estado final
+    printf("Itens coletados! Posicao X: %.1f, Pontos: %d, Pulo Duplo: Sim\n",
+           heroi.pos_x, heroi.pontuacao);
+
+    return 0;
+}

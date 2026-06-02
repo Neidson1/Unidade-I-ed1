@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+
+// Estrutura Jogador
+struct Jogador {
+    char nome[50];
+    int vidas;
+    int pontuacao;
+};
+
+int main() {
+    // Declaração do jogador
+    struct Jogador player1;
+
+    // Inicialização dos atributos
+    player1.vidas = 3;
+    player1.pontuacao = 0;
+
+    // Variável temporária para o nome
+    char nome_digitado[50];
+
+    // Pedir nome ao usuário
+    printf("Digite o nome do seu personagem: ");
+    scanf("%49s", nome_digitado);
+
+    // Copiar para a struct
+    strcpy(player1.nome, nome_digitado);
+
+    // Confirmação
+    printf("Personagem criado! Bem-vindo, %s! Vidas: %d, Pontuação: %d\n",
+           player1.nome, player1.vidas, player1.pontuacao);
+
+    return 0;
+}

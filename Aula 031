@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Definição do tipo Coletavel usando typedef
+typedef struct {
+    int pontos;
+    float pos_x;
+    float pos_y;
+} Coletavel;
+
+int main() {
+    // Declaração da variável
+    Coletavel gema_rara;
+
+    // Entrada de dados
+    printf("Digite o valor em pontos da gema: ");
+    scanf("%d", &gema_rara.pontos);
+
+    printf("Digite a posição X da gema: ");
+    scanf("%f", &gema_rara.pos_x);
+
+    printf("Digite a posição Y da gema: ");
+    scanf("%f", &gema_rara.pos_y);
+
+    // Saída de dados
+    printf("Coletável criado! Valor: %d pontos. Posição: (X=%.2f, Y=%.2f)\n",
+           gema_rara.pontos, gema_rara.pos_x, gema_rara.pos_y);
+
+    return 0;
+}

@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+// Definição da estrutura Heroi
+struct Heroi {
+    int saude;
+    int pontuacao;
+    int posX;
+    int posY;
+};
+
+int main() {
+    // Criação e inicialização do herói
+    struct Heroi meuHeroi = {100, 0, 0, 0};
+
+    // Impressão do estado inicial
+    printf("Estado inicial do heroi:\n");
+    printf("Saude: %d\n", meuHeroi.saude);
+    printf("Pontuacao: %d\n", meuHeroi.pontuacao);
+    printf("PosX: %d, PosY: %d\n\n", meuHeroi.posX, meuHeroi.posY);
+
+    // Criação do ponteiro para o herói
+    struct Heroi *ptrHeroi = &meuHeroi;
+
+    // Sofrer dano
+    ptrHeroi->saude -= 25;
+    printf("Após dano: Saude = %d\n", ptrHeroi->saude);
+
+    // Coletar moedas
+    ptrHeroi->pontuacao += 50;
+    printf("Após coleta de moedas: Pontuacao = %d\n", ptrHeroi->pontuacao);
+
+    // Mover herói
+    ptrHeroi->posX += 10;
+    ptrHeroi->posY -= 5;
+    printf("Após movimento: PosX = %d, PosY = %d\n\n",
+           ptrHeroi->posX, ptrHeroi->posY);
+
+    // Estado final usando apenas o ponteiro
+    printf("Estado final do heroi:\n");
+    printf("Saude: %d\n", ptrHeroi->saude);
+    printf("Pontuacao: %d\n", ptrHeroi->pontuacao);
+    printf("PosX: %d\n", ptrHeroi->posX);
+    printf("PosY: %d\n", ptrHeroi->posY);
+
+    return 0;
+}

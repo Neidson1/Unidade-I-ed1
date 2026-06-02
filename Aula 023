@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define LINHAS 5
+#define COLUNAS 10
+
+int main() {
+    int *level_map;
+
+    // Alocação dinâmica da matriz (vetor linear)
+    level_map = (int *) malloc(LINHAS * COLUNAS * sizeof(int));
+
+    // Verificação de alocação
+    if (level_map == NULL) {
+        printf("Erro: falha na alocacao de memoria!\n");
+        return 1;
+    }
+
+    // Construção do nível (ar e chão)
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+
+            if (i == LINHAS - 1) {
+                *(level_map + i * COLUNAS + j) = 1; // chão
+            } else {
+                *(level_map + i * COLUNAS + j) = 0; // ar
+            }
+        }
+    }
+
+    // Exibição do nível
+    printf("Mapa do nivel:\n");
+    for (int i = 0; i < LINHAS; i++) {
+        for (int j = 0; j < COLUNAS; j++) {
+            printf("%d ", *(level_map + i * COLUNAS + j));
+        }
+        printf("\n");
+    }
+
+    // Liberação de memória
+    free(level_map);
+    level_map = NULL;
+
+    return 0;
+}

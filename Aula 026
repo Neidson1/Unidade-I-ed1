@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *mochila;
+    int i;
+
+    // Alocando espaço para 3 itens
+    mochila = (int *) malloc(3 * sizeof(int));
+
+    if (mochila == NULL) {
+        printf("Erro: falha na alocacao de memoria!\n");
+        return 1;
+    }
+
+    // Primeira coleta
+    printf("Digite os 3 primeiros itens da mochila:\n");
+    for (i = 0; i < 3; i++) {
+        printf("Item %d: ", i + 1);
+        scanf("%d", &mochila[i]);
+    }
+
+    // Mostrar itens atuais
+    printf("\nItens na mochila (inicial): ");
+    for (i = 0; i < 3; i++) {
+        printf("%d ", mochila[i]);
+    }
+
+    // Expandir mochila
+    mochila = (int *) realloc(mochila, 6 * sizeof(int));
+
+    if (mochila == NULL) {
+        printf("\nErro: falha ao realocar memoria!\n");
+        return 1;
+    }
+
+    // Segunda coleta
+    printf("\n\nDigite os 3 novos itens da mochila:\n");
+    for (i = 3; i < 6; i++) {
+        printf("Item %d: ", i + 1);
+        scanf("%d", &mochila[i]);
+    }
+
+    // Mostrar mochila completa
+    printf("\nItens na mochila (completa): ");
+    for (i = 0; i < 6; i++) {
+        printf("%d ", mochila[i]);
+    }
+
+    printf("\n");
+
+    // Liberar memória
+    free(mochila);
+    mochila = NULL;
+
+    return 0;
+}

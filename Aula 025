@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int quantidade;
+    int *status_inimigos;
+
+    // Entrada da quantidade de inimigos
+    printf("Digite a quantidade de inimigos na fase: ");
+    scanf("%d", &quantidade);
+
+    // Alocação com calloc (inicializa tudo com 0)
+    status_inimigos = (int *) calloc(quantidade, sizeof(int));
+
+    // Verificação de falha na alocação
+    if (status_inimigos == NULL) {
+        printf("Erro: falha na alocacao de memoria!\n");
+        return 1;
+    }
+
+    // Status inicial (todos 0 por causa do calloc)
+    printf("\nStatus inicial dos inimigos:\n");
+    for (int i = 0; i < quantidade; i++) {
+        printf("Inimigo %d: Inativo (%d)\n", i + 1, status_inimigos[i]);
+    }
+
+    // Ativando inimigos
+    for (int i = 0; i < quantidade; i++) {
+        status_inimigos[i] = 1;
+    }
+
+    // Status final
+    printf("\nStatus final dos inimigos:\n");
+    for (int i = 0; i < quantidade; i++) {
+        printf("Inimigo %d: Ativo (%d)\n", i + 1, status_inimigos[i]);
+    }
+
+    // Liberando memória
+    free(status_inimigos);
+    status_inimigos = NULL;
+
+    return 0;
+}

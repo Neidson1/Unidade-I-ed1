@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int linhas, colunas;
+    int **mapa;
+    int blocos_tijolo = 0;
+
+    // Leitura das dimensões
+    printf("Digite o numero de linhas: ");
+    scanf("%d", &linhas);
+
+    printf("Digite o numero de colunas: ");
+    scanf("%d", &colunas);
+
+    // Alocação dinâmica da matriz (vetor de ponteiros)
+    mapa = (int **) malloc(linhas * sizeof(int *));
+    if (mapa == NULL) {
+        printf("Erro de alocacao de memoria!\n");
+        return 1;
+    }
+
+    // Alocação de cada linha
+    for (int i = 0; i < linhas; i++) {
+        mapa[i] = (int *) malloc(colunas * sizeof(int));
+
+        if (mapa[i] == NULL) {
+            printf("Erro de alocacao de memoria!\n");
+
+            // Libera o que já foi alocado antes de sair
+            for (int k = 0; k < i; k++) {
+                free(mapa[k]);
+            }
+            free(mapa);
+
+            return 1;
+        }
+    }
+
+    // Preenchimento do mapa
+    printf("Preencha o mapa (0, 1 ou 2):\n");
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            printf("Posicao [%d][%d]: ", i, j);
+            scanf("%d", &mapa[i][j]);
+        }
+    }
+
+    // Contagem de blocos de tijolo (1)
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            if (mapa[i][j] == 1) {
+                blocos_tijolo++;
+            }
+        }
+    }
+
+    // Exibição do resultado
+    printf("O mapa possui %d blocos de tijolo.\n", blocos_tijolo);
+
+    // Liberação de memória (ordem inversa da alocação)
+    for (int i = 0; i < linhas; i++) {
+        free(mapa[i]);
+    }
+    free(mapa);
+
+    return 0;
+}

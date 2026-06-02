@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *duracao_fumaca;
+
+    // Alocação de memória
+    duracao_fumaca = (int *) malloc(sizeof(int));
+
+    // Verificação de falha na alocação
+    if (duracao_fumaca == NULL) {
+        printf("Erro: falha na alocacao de memoria!\n");
+        return 1;
+    }
+
+    // Definindo duração da fumaça
+    *duracao_fumaca = 5;
+
+    // Impressão da ativação
+    printf("Bomba de fumaca ativada! Duracao: %d segundos.\n", *duracao_fumaca);
+
+    // Liberação de memória
+    free(duracao_fumaca);
+
+    // Evitar ponteiro pendurado
+    duracao_fumaca = NULL;
+
+    // Mensagem final
+    printf("A fumaca se dissipou.\n");
+
+    return 0;
+}
